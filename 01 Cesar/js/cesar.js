@@ -13,11 +13,14 @@ var cesar = cesar || (function(){
 
             return function(c){
                 //vamos a saber la posicion
-                var i = abc.indexOf(c.toLowerCase);
+                var i = abc.indexOf(c.toLowerCase());
                 //necesitamos saber es donde estamos adentro de la matriz
                 //como la vamos a recorrer y que pasa cuando llegue
                 //al final?
-                if(i!= -1){
+                //alert(c);
+                //alert(i);
+
+                if(i != -1){
                     //primero obtenemos la posicion para el desp
                     var pos = i;
                     //que voy a hacer cifrar o descifrar
