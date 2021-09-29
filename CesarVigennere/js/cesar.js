@@ -4,7 +4,7 @@ var cesar = cesar || (()=>{
             //primero necesito tener la matriz del alfabeto
             //hay que recorrar que el cifrado lo hace caracter por caracter
             const abc = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-                        'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 
+                        'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 
                         'x', 'y', 'z'];
             const l = abc.length;
 
@@ -17,8 +17,6 @@ var cesar = cesar || (()=>{
                 //necesitamos saber es donde estamos adentro de la matriz
                 //como la vamos a recorrer y que pasa cuando llegue
                 //al final?
-                //alert(c);
-                //alert(i);
 
                 if(i != -1){
                     //primero obtenemos la posicion para el desp
@@ -26,14 +24,20 @@ var cesar = cesar || (()=>{
                     //que voy a hacer cifrar o descifrar
                     if(action){
                         //cifrar para adelante
-                        pos += desp;
+                        pos = (pos+desp)%27;
                         //como se va a mover
                         pos -= (pos >= l)?l:0;
                     }else{
-                        //descifrar para atras
-                        pos -= desp;
-                        //movimiento
-                        pos += (pos < 0)?l:0;
+                       //descifrar para atras 
+                        let despf = 0;
+                        for(let j=0; j<desp;j++){
+                            despf = 27*j;
+                            if(despf>=desp){
+                                break;
+                            }
+                        }
+                        pos = (pos-desp+despf)%27;
+                        pos += (pos<0)?1:0;
                     }
                     return abc[pos];
 
@@ -42,7 +46,7 @@ var cesar = cesar || (()=>{
             };
         })();
         //tenemos que saber que el texto este acorde al abc
-        const re = (/([a-z])/ig);
+        const re = (/([a-zñ])/ig);
         //una funcion que se encargue del intercambio
         return String(txt).replace(re, (match)=>{
             return replace(match);
@@ -65,11 +69,15 @@ var cesar = cesar || (()=>{
 //funcion de cifrado
 
 function cifrar(){
-    document.getElementById("resultado").innerHTML = cesar.encode(document.getElementById("cadena").value, 3);
+    document.getElementById("resultado").innerHTML = 
+        cesar.encode(document.getElementById("cadena").value
+        , parseInt(document.getElementById("rango").value));
 }
 
 //funcion de descifrado
 
 function descifrar(){
-    document.getElementById("resultado").innerHTML = cesar.decode(document.getElementById("cadena").value, 3);
+    document.getElementById("resultado").innerHTML = 
+        cesar.decode(document.getElementById("cadena").value
+        , parseInt(document.getElementById("rango").value));
 }

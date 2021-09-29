@@ -26,6 +26,8 @@
     <p>
         <input type="button" value="Cifrar" onclick="cifrar()" >
         <input type="button" value="Descifrar" onclick="descifrar()" >
+        <input type="range" min="1" max="27" value="13" step="1" id="rango" oninput="this.nextElementSibling.value = this.value">
+        <output>13</output>
     </p>
     <div id="resultado" >
 
