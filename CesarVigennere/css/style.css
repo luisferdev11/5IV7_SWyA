@@ -1,6 +1,22 @@
-*{
-
-    background-color:rgb(24, 179, 179);
-    font-size: 20px;
-    font-family: 'Roboto';
+* {
+  background-color: rgb(243, 244, 246);
 }
+/*
+input[type="range"] {
+  -webkit-appearance: none;
+  border-radius: 2rem;
+  background-color: rgb(156, 163, 175);
+  margin: 0;
+  padding: 0 5px;
+  height: 20px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  cursor: pointer;
+  -webkit-appearance: none;
+  background: rgb(91, 33, 182);
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+}
+*/

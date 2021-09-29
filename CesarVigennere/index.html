@@ -6,33 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejemplo Cesar</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    Este es un ejemplo para poder cifrar un texto con el algoritmo de césar.
-    P.D. tengo sueñito
-
-    Tarea:
-
-    Voy a querer que no sea constante el desplazamiento y que lo pueda ingresar
-    adentro de un campo de texto, deberan de aplicar la operacion modulo
-    si me paso de 27 letras
-
-    desp  mod 27 
-
-    porque van a agregar la ñ
-    <br>
-    <textarea id="cadena" cols="30" rows="10"></textarea>
-    <br>
-    <p>
-        <input type="button" value="Cifrar" onclick="cifrar()" >
-        <input type="button" value="Descifrar" onclick="descifrar()" >
-        <input type="range" min="1" max="27" value="13" step="1" id="rango" oninput="this.nextElementSibling.value = this.value">
-        <output>13</output>
-    </p>
-    <div id="resultado" >
-
-    </div>
-
+    <figure class="md:flex bg-gray-100 rounded-xl p-8 md:p-0"></figure>
+        <div class="pt-6 md:p-8 text-center md:text-left space-y-4 max-w-5xl m-auto bg-gray-100">
+            <h1 class="text-xl font-bold text-green-700">Cifrado Cesar</h1>
+            <p>En este apartado se puedes cirar y descifrar tu mensaje con el cifrado Cesar</p>
+            <textarea id="cadena"  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
+            <br>
+            <input type="button" value="Cifrar" onclick="cifrar()" class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-green-500 hover:bg-green-700" >
+            
+            <input type="range" min="1" max="27" value="13" step="1" id="rango" oninput="this.nextElementSibling.value = this.value">
+            <output>13</output>
+            
+            <div>
+                <textarea id="resultado"  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
+                <br>
+                <input type="button" value="Descifrar" onclick="descifrar()" class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-pink-500 hover:bg-pink-700" >
+                <br>
+                <p>Descifrado:</p>
+                <p id="resultadoDescifrado"></p>
+            </div>
+        </div>
+    </figure>
+    <figure class="md:flex bg-gray-100 rounded-xl p-8 md:p-0"></figure>
+        <div class="pt-6 md:p-8 text-center md:text-left space-y-4 max-w-5xl m-auto bg-gray-100">
+            <h1 class="text-xl font-bold text-pink-700">Cifrado Vigennere</h1>
+        </div>
+    </figure>
     <script src="js/cesar.js" ></script>
 </body>
 </html>

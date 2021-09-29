@@ -77,7 +77,7 @@ function cifrar(){
 //funcion de descifrado
 
 function descifrar(){
-    document.getElementById("resultado").innerHTML = 
-        cesar.decode(document.getElementById("cadena").value
+    document.getElementById("resultadoDescifrado").innerHTML = 
+        cesar.decode(document.getElementById("resultado").value
         , parseInt(document.getElementById("rango").value));
 }
