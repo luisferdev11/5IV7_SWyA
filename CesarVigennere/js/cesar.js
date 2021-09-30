@@ -69,15 +69,24 @@ var cesar = cesar || (()=>{
 //funcion de cifrado
 
 function cifrar(){
-    document.getElementById("resultado").innerHTML = 
+    if (parseInt(document.getElementById("rango").value) > 0) {
+      document.getElementById("resultado").innerHTML = 
         cesar.encode(document.getElementById("cadena").value
-        , parseInt(document.getElementById("rango").value));
+        , parseInt(document.getElementById("rango").value));  
+    }else{
+        document.getElementById("resultado").innerHTML = "ñao ñao, hacker ñao opina aqui";
+    }
+    
 }
 
 //funcion de descifrado
 
 function descifrar(){
-    document.getElementById("resultadoDescifrado").innerHTML = 
-        cesar.decode(document.getElementById("resultado").value
-        , parseInt(document.getElementById("rango").value));
+    if (parseInt(document.getElementById("rango").value) > 0) {
+        document.getElementById("resultadoDescifrado").innerHTML = 
+            cesar.decode(document.getElementById("resultado").value
+            , parseInt(document.getElementById("rango").value));
+    }else{
+        document.getElementById("resultado").innerHTML = "ñao ñao, hacker ñao opina aqui";
+    }
 }
