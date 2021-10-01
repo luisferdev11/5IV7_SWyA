@@ -43,10 +43,14 @@ var cesar = cesar || (()=>{
                         }
                         pos += (pos<0)?1:0;
                     }
-                    return abc[pos];
+                    if (abc[pos] == undefined){
+                        return "z";
+                    }else{
+                        return abc[pos];
+                    }
 
                 }
-                return "z";
+                return c;
             };
         })();
         //tenemos que saber que el texto este acorde al abc
