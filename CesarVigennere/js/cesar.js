@@ -36,13 +36,17 @@ var cesar = cesar || (()=>{
                                 break;
                             }
                         }
-                        pos = (pos-desp+despf)%27;
+                        if (pos === 0) {
+                            pos = (pos-desp+despf-1)%27;
+                        }else{
+                            pos = (pos-desp+despf)%27;
+                        }
                         pos += (pos<0)?1:0;
                     }
                     return abc[pos];
 
                 }
-                return c;
+                return "z";
             };
         })();
         //tenemos que saber que el texto este acorde al abc

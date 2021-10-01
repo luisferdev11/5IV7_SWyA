@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejemplo Cesar</title>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
@@ -13,6 +14,8 @@
         <div class="pt-6 md:p-8 text-center md:text-left space-y-4 max-w-5xl m-auto bg-gray-100">
             <h1 class="text-xl font-bold text-green-700">Cifrado Cesar</h1>
             <p>En este apartado se puedes cirar y descifrar tu mensaje con el cifrado Cesar</p>
+            <br>
+            <p>Mensaje a cifrar:</p>
             <textarea id="cadena" maxlength="40"  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
             <br>
             <input type="button" value="Cifrar" onclick="cifrar()" class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-green-500 hover:bg-green-700" >
@@ -21,6 +24,7 @@
             <output>13</output>
             
             <div>
+                <p>Mensaje cifrado:</p>
                 <textarea id="resultado" maxlength="40" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
                 <br>
                 <input type="button" value="Descifrar" onclick="descifrar()" class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-pink-500 hover:bg-pink-700" >
@@ -30,12 +34,36 @@
             </div>
         </div>
     </figure>
+
+    <script src="js/cesar.js" ></script>
+
+
+
     <figure class="md:flex bg-gray-100 rounded-xl p-8 md:p-0"></figure>
         <div class="pt-6 md:p-8 text-center md:text-left space-y-4 max-w-5xl m-auto bg-gray-100">
             <h1 class="text-xl font-bold text-pink-700">Cifrado Vigennere</h1>
+            <p>En este apartado se puedes cirar y descifrar tu mensaje con el cifrado Cesar</p>
+            <textarea id="mess" maxlength="40"  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
+            <br>
+            <input id="ci" type="button" value="Cifrar" class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-green-500 hover:bg-green-700">
         </div>
     </figure>
     
-    <script src="js/cesar.js" ></script>
+
+            <h2>Mensaje de entrada:</h2>
+            <input type="text" placeholder="Mensaje de entrada"  id="mess" onkeypress="">
+            <h2>Mensaje clave:</h2>
+            <input type="text" placeholder="Mensaje clave"  id="llave" onkeypress="">
+            <br>
+            <input id="ci" type="button" value="Cifrar" class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-green-500 hover:bg-green-700">
+            <input id="de" type="button" value="Descifrar" class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-pink-500 hover:bg-pink-700">
+    <p>
+        <h2>Mensaje de salida:</h2> 
+        <div id="rs"></div>
+    </p>
+
+
+    
+    <script src="js/viggenere.js" ></script>
 </body>
 </html>
