@@ -4,12 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <link rel="stylesheet" href="Css/style.css">
     <title>Prueba de archivos</title>
 </head>
+	<nav>
+	<a href="" target="_blank">GitHub</a>
+		<a href="https://github.com/MagicOso1412" target="_blank">Chavez Torreblanca Angel Alexis</a>
+		<a href="https://github.com/luisferdev11" target="_blank">Rodriguez Dominguez Luis Fernando</a>
+		<a>SWyA 5IV7</a>
+	</nav>
 <body>
-    <form action='http://localhost:3000/upload' method="POST" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <input type="submit" value="Subir">
-    </form>
+	<div class="main">
+		 <h1>Cifrado DES</h1>
+        <form class="CuadroUno">
+            <div class="texto">
+                    Data Encryption Standard (DES) es un algoritmo de cifrado, es decir, un 
+                    método para cifrar información, escogido como un estándar FIPS en los Estados 
+                    Unidos en 1976, y cuyo uso se ha propagado ampliamente por todo el mundo. 
+                <p>
+                    El algoritmo fue controvertido al principio, con algunos elementos de diseño 
+                    clasificados, una longitud de clave relativamente corta, y las continuas 
+                    sospechas sobre la existencia de alguna puerta trasera para la National 
+                    Security Agency (NSA). Posteriormente DES fue sometido a un intenso análisis 
+                    académico y motivó el concepto moderno del cifrado por bloques y su 
+                    criptoanálisis.
+				</p>
+            </div>
+		
+	<div>
+		<div class="Contenido">
+		 		<b>Contenido:</b>
+    		<form action='http://localhost:3000/upload' method="POST" enctype="multipart/form-data">
+        		<input type="file" name="file">
+        		<input class="botones-enviar" type="submit" value="Subir">
+    		</form>
+		</div>
+		
+		<div class="clave">
+				<b>Clave:</b>
+			<form action='http://localhost:3000/upload' method="POST" enctype="multipart/form-data">
+        		<input name="file" type="file">
+        		<input class="botones-enviar" type="submit" value="Subir">
+   		  </form>
+		</div>
+		 <h3>¿Que quieres hacer?</h3>
+                <div class="botones-enviar">
+                    <input class="botones-enviar" type="button" onclick="validarCifrado(event)" value="Cifrar">
+                    <input class="botones-enviar" type="button" onclick="validarDescifrado(event)" value="Descifrar">
+                </div>
+		
+                </div>
+		</form>
+	</div>
+	<script src="Js/mostrarNombre.js"></script>
+    <script src="Js/validacion.js"></script>
 </body>
 </html>
