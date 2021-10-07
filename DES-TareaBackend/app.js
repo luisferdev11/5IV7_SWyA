@@ -12,7 +12,8 @@ app.use(express.static('public'));
 app.post('/encriptar',(req,res) => {
     const nombreArchivo = "mensajeEncriptado.txt";
     const inputContenido = req.files.contenido.data.toString();
-    const encripted = Buffer.from(DES.encryptText(inputContenido)).toString();
+    const inputPassword = req.body.Password;
+    const encripted = Buffer.from(DES.encryptText(inputContenido, `${inputPassword}${inputPassword}${inputPassword}`)).toString();
     console.log(""+encripted);
     
     fs.writeFileSync(`./files/${nombreArchivo}`, ""+encripted);
@@ -23,8 +24,9 @@ app.post('/encriptar',(req,res) => {
 app.post('/desencriptar', function(req, res){
     const nombreArchivo = "mensajeDesencriptado.txt";
     const inputContenido = req.files.contenido.data.toString();
+    const inputPassword = req.body.Password;
     console.log(inputContenido);
-    const desencripted = Buffer.from(DES.decryptText(inputContenido)).toString();
+    const desencripted = Buffer.from(DES.decryptText(inputContenido, `${inputPassword}${inputPassword}${inputPassword}`)).toString();
     console.log(""+desencripted);
     
     fs.writeFileSync(`./files/${nombreArchivo}`, ""+desencripted);
