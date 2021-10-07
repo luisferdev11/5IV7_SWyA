@@ -1,0 +1,80 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+/* CSS Document */
+nav {
+  border-radius: 1.5rem;
+  width: 100%;
+  display: flex;
+  background-color: #a7f2f2;
+  align-items: center;
+  padding: 0;
+}
+
+nav a {
+  border-radius: 1.5rem;
+  width: 50%;
+  font-family: "Anton";
+  text-decoration: none;
+  text-align: center;
+  padding: 1.2rem;
+  color: black;
+  font-weight: bold;
+}
+
+nav a:hover {
+  background-color: #a0e8d3;
+  color: black;
+}
+
+body {
+  margin-bottom: 3rem;
+  background-color: #5c76f5;
+  font-family: "Anton";
+  color: black;
+  height: 1200px;
+  /*align-items: center;
+	align-content: center;
+	align-self: center;*/
+}
+
+input {
+  font-family: "Anton";
+  margin: 0px auto;
+  border-radius: 0.5rem;
+  display: flex;
+  background-color: #a2cbdb;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.main {
+  text-align: center;
+}
+
+.texto {
+  font-family: "Anton";
+  margin: 20px;
+  color: black;
+  font-size: 150%;
+  text-align: justify;
+  /*width: 80%;*/
+  align-content: center;
+}
+.CuadroUno {
+  margin: 0px auto;
+  width: 80%;
+  border-radius: 1rem;
+  background-color: #a7c8f2;
+}
+.botones-enviar {
+  margin-top: 5px;
+}
+
+body::-webkit-scrollbar {
+  width: 7px;
+  background-color: #5c76f5;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #a7f2f2;
+  border-radius: 1rem;
+}

@@ -1,28 +1,24 @@
 const crypto = require('crypto');
-const fs = require('fs');
 
 const config = {
     cryptkey: "5TGB&YHN7UJM(IK<5TGB&YHN",//24
     iv: "!QAZ2WSX"//8
 };
 
-const text = fs.readFileSync('./files/texto.txt', 'utf8');
-
 
 function encryptText(text){
     //console.log(config.cryptkey);
     const cipher = crypto.createCipheriv('des-ede3-cbc', config.cryptkey, config.iv);
-
-    const input = fs.createReadStream('./files/texto.txt');
-    const output = fs.createWriteStream('./files/texto.txt.cifrado');
-
-    input.pipe(cipher).pipe(output);
+    let crypted = cipher.update(text,'utf8','binary');
+    crypted += cipher.final('binary');
+    crypted = new Buffer.from(crypted, 'binary').toString('base64');
+    return crypted;
 }
 
 function decryptText(text){
     // que sea texto válido
     if (text === null || typeof text === 'undefined' || text === '') {return text;};
-    text = new Buffer.from(text, 'base64');
+    text = new Buffer.from(text, 'base64').toString('binary');
     const decipher = crypto.createDecipheriv('des-ede3-cbc', config.cryptkey, config.iv);
     let dec = decipher.update(text,'binary','utf8');
     dec += decipher.final('utf8');
@@ -30,16 +26,4 @@ function decryptText(text){
 }
 
 
-encryptText(text);
-
-
-// fs.createReadStream('./files/texto.txt').pipe(fs.createWriteStream('./files/texto.txt.cifrado'));   //encryptText(text);
-
-//encriptamos
-// const encriptado = encryptText(text);
-// console.log("enc: " + encriptado);
-// fs.writeFileSync('./files/texto.txt.cifrado', encriptado);
-//console.log("Enc: " + encriptado);
-
-// const desencriptado = decryptText(encriptado);
-// console.log("Dec: " + desencriptado);
+module.exports = {encryptText, decryptText};
