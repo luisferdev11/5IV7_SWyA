@@ -10,28 +10,42 @@ app.use(fileUpload());
 app.use(express.static('public'));
 
 app.post('/encriptar',(req,res) => {
-    const nombreArchivo = "mensajeEncriptado.txt";
-    const inputContenido = req.files.contenido.data.toString();
-    const inputPassword = req.body.Password;
-    const encripted = Buffer.from(DES.encryptText(inputContenido, `${inputPassword}${inputPassword}${inputPassword}`)).toString();
-    console.log(""+encripted);
     
-    fs.writeFileSync(`./files/${nombreArchivo}`, ""+encripted);
+    try {
+        const nombreArchivo = "mensajeEncriptado.txt";
+        const inputContenido = req.files.contenido.data.toString();
+        const inputPassword = req.body.Password;
+
+        //la librería solo contine un triple DES, para tener un DES normalito se repite la clave 3 veces
+        const encripted = Buffer.from(DES.encryptText(inputContenido, `${inputPassword}${inputPassword}${inputPassword}`)).toString();
+        console.log(""+encripted);
+        
+        fs.writeFileSync(`./files/${nombreArchivo}`, ""+encripted);
+        
+        res.download(`./files/${nombreArchivo}`);
+    } catch (error) {
+        res.redirect('/');
+    }
     
-    res.download(`./files/${nombreArchivo}`);
 });
 
 app.post('/desencriptar', function(req, res){
-    const nombreArchivo = "mensajeDesencriptado.txt";
-    const inputContenido = req.files.contenido.data.toString();
-    const inputPassword = req.body.Password;
-    console.log(inputContenido);
-    const desencripted = Buffer.from(DES.decryptText(inputContenido, `${inputPassword}${inputPassword}${inputPassword}`)).toString();
-    console.log(""+desencripted);
+    try {
+        const nombreArchivo = "mensajeDesencriptado.txt";
+        const inputContenido = req.files.contenido.data.toString();
+        const inputPassword = req.body.Password;
+        console.log(inputContenido);
     
-    fs.writeFileSync(`./files/${nombreArchivo}`, ""+desencripted);
-    
-    res.download(`./files/${nombreArchivo}`);
+        //misma explicacion
+        const desencripted = Buffer.from(DES.decryptText(inputContenido, `${inputPassword}${inputPassword}${inputPassword}`)).toString();
+        console.log(""+desencripted);
+        
+        fs.writeFileSync(`./files/${nombreArchivo}`, ""+desencripted);
+        
+        res.download(`./files/${nombreArchivo}`);   
+    } catch (error) {
+        res.redirect('/');
+    }
 });
 
 app.listen(3000,() => console.log('Corriendo'));
