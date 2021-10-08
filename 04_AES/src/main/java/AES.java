@@ -32,7 +32,7 @@ public class AES {
         'q', 'w', 'e', 'r', 't', 'y', 'u', 'i',
         'q', 'w', 'e', 'r', 't', 'y', 'u', 'i',
         'q', 'w', 'e', 'r', 't', 'y', 'u', 'i',
-        'q', 'w', 'e', 'r', 't', 'y', 'u'
+        'q', 'w', 'e', 'r', 't', 'y', 'u', 'i'
     };
     
     private static final String instancia = "AES";
