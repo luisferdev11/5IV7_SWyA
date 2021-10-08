@@ -18,7 +18,6 @@ app.post('/encriptar',(req,res) => {
 
         //la librería solo contine un triple DES, para tener un DES normalito se repite la clave 3 veces
         const encripted = Buffer.from(DES.encryptText(inputContenido, `${inputPassword}${inputPassword}${inputPassword}`)).toString();
-        console.log(""+encripted);
         
         fs.writeFileSync(`./files/${nombreArchivo}`, ""+encripted);
         
@@ -34,11 +33,9 @@ app.post('/desencriptar', function(req, res){
         const nombreArchivo = "mensajeDesencriptado.txt";
         const inputContenido = req.files.contenido.data.toString();
         const inputPassword = req.body.Password;
-        console.log(inputContenido);
     
         //misma explicacion
         const desencripted = Buffer.from(DES.decryptText(inputContenido, `${inputPassword}${inputPassword}${inputPassword}`)).toString();
-        console.log(""+desencripted);
         
         fs.writeFileSync(`./files/${nombreArchivo}`, ""+desencripted);
         
@@ -48,4 +45,9 @@ app.post('/desencriptar', function(req, res){
     }
 });
 
-app.listen(3000,() => console.log('Corriendo'));
+
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+  })
