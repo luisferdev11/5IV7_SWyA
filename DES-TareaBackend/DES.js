@@ -1,7 +1,6 @@
 const crypto = require('crypto');
 
 const config = {
-    cryptkey: "5TGB&YHN7UJM(IK<5TGB&YHN",//24
     iv: "!QAZ2WSX"//8
 };
 
