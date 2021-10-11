@@ -1,75 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="Css/style.css" />
-    <title>Prueba de archivos</title>
-  </head>
-  <nav>
-    <a href="" target="_blank">GitHub</a>
-    <a href="https://github.com/MagicOso1412" target="_blank"
-      >Chavez Torreblanca Angel Alexis</a
-    >
-    <a href="https://github.com/luisferdev11" target="_blank"
-      >Rodriguez Dominguez Luis Fernando</a
-    >
-    <a>SWyA 5IV7</a>
-  </nav>
-  <body>
-    <div class="main">
-      <h1>Cifrado DES</h1>
-      <div class="texto">
-        Data Encryption Standard (DES) es un algoritmo de cifrado, es decir, un
-        método para cifrar información, escogido como un estándar FIPS en los
-        Estados Unidos en 1976, y cuyo uso se ha propagado ampliamente por todo
-        el mundo.
-        <p>
-          El algoritmo fue controvertido al principio, con algunos elementos de
-          diseño clasificados, una longitud de clave relativamente corta, y las
-          continuas sospechas sobre la existencia de alguna puerta trasera para
-          la National Security Agency (NSA). Posteriormente DES fue sometido a
-          un intenso análisis académico y motivó el concepto moderno del cifrado
-          por bloques y su criptoanálisis.
-        </p>
-      </div>
-
-      <div>
-        <div class="Contenido">
-          <b>Contenido:</b>
-          <form method="POST" enctype="multipart/form-data" id="formulario">
-            <input
-              name="contenido"
-              id="contenido"
-              type="file"
-              name="file"
-              accept="text/plain"
-            />
-            <b>Clave:</b>
-            <input
-              type="text"
-              id="Password"
-              name="Password"
-              maxlength="8"
-              minlength="8"
-            />
-            <input
-              class="botones-enviar"
-              type="submit"
-              onclick="cifrar(event)"
-              value="Cifrar"
-            />
-            <input
-              class="botones-enviar"
-              type="submit"
-              onclick="descifrar(event)"
-              value="Descifrar"
-            />
-          </form>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="Css/style.css" />
+        <title>Prueba de archivos</title>
+    </head>
+    <nav>
+        <a href="" target="_blank">GitHub</a>
+        <a href="https://github.com/MagicOso1412" target="_blank"
+            >Chavez Torreblanca Angel Alexis</a
+        >
+        <a href="https://github.com/luisferdev11" target="_blank"
+            >Rodriguez Dominguez Luis Fernando</a
+        >
+        <a>SWyA 5IV7</a>
+    </nav>
+    <body>
+        <div class="main">
+            <h1>Cifrado DES</h1>
+            <div class="texto">
+                <p>
+                    Data Encryption Standard (DES) es un algoritmo de cifrado,
+                    es decir, un método para cifrar información, escogido como
+                    un estándar FIPS en los Estados Unidos en 1976, y cuyo uso
+                    se ha propagado ampliamente por todo el mundo.
+                </p>
+                <p>
+                    El algoritmo fue controvertido al principio, con algunos
+                    elementos de diseño clasificados, una longitud de clave
+                    relativamente corta, y las continuas sospechas sobre la
+                    existencia de alguna puerta trasera para la National
+                    Security Agency (NSA). Posteriormente DES fue sometido a un
+                    intenso análisis académico y motivó el concepto moderno del
+                    cifrado por bloques y su criptoanálisis.
+                </p>
+            </div>
+            <div>
+                <div class="Contenido">
+                    <b>Contenido:</b>
+                    <form
+                        method="POST"
+                        enctype="multipart/form-data"
+                        id="formulario"
+                    >
+                        <input
+                            name="contenido"
+                            id="contenido"
+                            type="file"
+                            name="file"
+                            accept="text/plain"
+                        />
+                        <b>Clave:</b>
+                        <input
+                            type="text"
+                            id="Password"
+                            name="Password"
+                            maxlength="8"
+                            minlength="8"
+                        />
+                        <input
+                            class="botones-enviar"
+                            type="submit"
+                            onclick="cifrar(event)"
+                            value="Cifrar"
+                        />
+                        <input
+                            class="botones-enviar"
+                            type="submit"
+                            onclick="descifrar(event)"
+                            value="Descifrar"
+                        />
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <script src="Js/validacion.js"></script>
-  </body>
+        <script src="Js/validacion.js"></script>
+    </body>
 </html>
