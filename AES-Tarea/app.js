@@ -15,29 +15,38 @@ app.listen(port, () => {
 });
 
 app.post("/encriptar", (req, res) => {
-    const nombreArchivo = "mensajeEncriptado.txt";
-    const inputContenido = req.files.contenido.data.toString();
-    const inputClave = req.body.Password;
+    try {
+        const nombreArchivo = "mensajeEncriptado.txt";
+        const inputContenido = req.files.contenido.data.toString();
+        const inputClave = req.body.Password;
 
-    const encriptado = Buffer.from(
-        CryptoJS.AES.encrypt(inputContenido, inputClave).toString()
-    );
+        const encriptado = Buffer.from(
+            CryptoJS.AES.encrypt(inputContenido, inputClave).toString()
+        );
 
-    fs.writeFileSync(`./files/${nombreArchivo}`, encriptado);
-    res.download(`./files/${nombreArchivo}`);
+        fs.writeFileSync(`./files/${nombreArchivo}`, encriptado);
+        res.download(`./files/${nombreArchivo}`);
+    } catch (error) {
+        res.redirect("/");
+    }
 });
 
 app.post("/desencriptar", function (req, res) {
-    const nombreArchivo = "mensajeDesencriptado.txt";
-    const inputContenido = req.files.contenido.data.toString();
-    const inputClave = req.body.Password;
+    try {
+        const nombreArchivo = "mensajeDesencriptado.txt";
+        const inputContenido = req.files.contenido.data.toString();
+        const inputClave = req.body.Password;
 
-    const desencriptado = Buffer.from(
-        CryptoJS.AES.decrypt(inputContenido.toString(), inputClave).toString(
-            CryptoJS.enc.Utf8
-        )
-    );
+        const desencriptado = Buffer.from(
+            CryptoJS.AES.decrypt(
+                inputContenido.toString(),
+                inputClave
+            ).toString(CryptoJS.enc.Utf8)
+        );
 
-    fs.writeFileSync(`./files/${nombreArchivo}`, desencriptado);
-    res.download(`./files/${nombreArchivo}`);
+        fs.writeFileSync(`./files/${nombreArchivo}`, desencriptado);
+        res.download(`./files/${nombreArchivo}`);
+    } catch (error) {
+        res.redirect("/");
+    }
 });
