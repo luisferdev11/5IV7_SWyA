@@ -1,35 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>AES</title>
-    </head>
-    <body>
-        <form method="POST" enctype="multipart/form-data" id="formulario">
-            <input
-                name="contenido"
-                id="contenido"
-                type="file"
-                name="file"
-                accept="text/plain"
-            />
-            <b>Clave:</b>
-            <input type="text" id="Password" name="Password" maxlength="32" />
-            <input
-                class="botones-enviar"
-                type="submit"
-                onclick="cifrar(event)"
-                value="Cifrar"
-            />
-            <input
-                class="botones-enviar"
-                type="submit"
-                onclick="descifrar(event)"
-                value="Descifrar"
-            />
-        </form>
-        <script src="Js/validacion.js"></script>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="your keyword goes to here">
+    <meta name="author" content="themexriver">
+    <title>Cifrado AES</title>
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/media-query.css" rel="stylesheet">
+
+</head>
+
+<body id="contact-page">
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="images/BatizFacha.jpeg" width="50px" alt="Logo"></a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="https://cifradodes.herokuapp.com/?classId=eb83d173-953d-493b-b2d2-57017de0449d&assignmentId=3f50affc-caff-4315-86a5-2600a3abd0e6&submissionId=bc93fc11-c36d-5941-0f79-059e02491f29">Cifrado DES</a></li>
+                        <li><a href="https://github.com/MagicOso1412">Chávez Torreblanc Angel Alexis</a></li>
+                        <li><a href="https://github.com/luisferdev11">Rodriguez Dominguez Luis Fernando</a></li>
+                    </ul>
+                </div>
+            </div> 
+        </nav> 
+
+    </header> 
+
+    <section class="contact section-padding">
+        <div class="row">
+            <div class="section-heading">
+                <div class="col col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+                    <h2>Cifrado AES</h2>
+                    <p>Este es el cifrado AES de Luis y Alexis 	</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="container">
+                <div class="col">
+                    <form method="POST" enctype="multipart/form-data" id="formulario">
+						<div class="form-group col">
+							<input
+                			name="contenido"
+                			id="contenido"
+                			type="file"
+                			name="file"
+                			accept="text/plain"
+            				/>
+						</div>
+                        <div class="form-group col">
+                            <label class="sr-only" for="name">Clave</label>
+                            <input type="text" id="Password" name="Password" maxlength="32" placeholder="Clave"/>
+                        </div>	
+                        <div class="form-group submit col">
+                           
+							<input
+                			class="botones-enviar"
+                			type="submit"
+                			onclick="cifrar(event)"
+                			value="Cifrar"
+            				/>
+            				<input
+                			class="botones-enviar"
+                			type="submit"
+                			onclick="descifrar(event)"
+                			value="Descifrar"
+							style="margin: 10px"
+            				/>
+                        </div>
+                    </form>
+                </div>
+            </div>        
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="row">
+            <div class="container">
+                
+                    <a href="#"><img src="images/BatizFacha.jpeg" alt="Logo" class="img img-responsive" width="150px"></a>
+        <div class="row copyright">
+            <div class="container">
+                <div class="col col-sm-9">
+                    <p>&copy; 2021 <span class="theme-highlights">BearTual</span>Todos los derechos reservados a BearTual</p>
+                </div>
+            </div>
+        </div>
+    </footer>    
+
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/common-script.js"></script>
+	<script src="Js/validacion.js"></script>
+</body>
 </html>

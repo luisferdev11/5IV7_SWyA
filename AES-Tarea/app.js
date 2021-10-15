@@ -27,6 +27,7 @@ app.post("/encriptar", (req, res) => {
         fs.writeFileSync(`./files/${nombreArchivo}`, encriptado);
         res.download(`./files/${nombreArchivo}`);
     } catch (error) {
+        console.log(error);
         res.redirect("/");
     }
 });

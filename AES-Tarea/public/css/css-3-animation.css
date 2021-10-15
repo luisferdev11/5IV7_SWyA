@@ -1,0 +1,13 @@
+.fadeInRight {
+	-webkit-animation: fadeInRight 3s forwards;
+	animation: fadeInRight 3s forwards;
+}
+
+@-webkit-keyframes fadeInRight {
+	from {-webkit-transform: translatex(50px); opacity: 0; }
+	to {-webkit-transform: translatex(0); opacity: 1; }
+}
+@keyframes fadeInRight {
+	from {transform: translatex(50px); opacity: 0; }
+	to {transform: translatex(0); opacity: 1; }
+}
