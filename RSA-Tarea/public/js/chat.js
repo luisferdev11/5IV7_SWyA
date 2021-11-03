@@ -4,12 +4,12 @@ let message = document.getElementById("message");
 let username = document.getElementById("username");
 let btn = document.getElementById("send");
 let output = document.getElementById("output");
-let actions = document.getElementById("actions");
+let descifrado = document.getElementById("descifrado") || 3;
 
 btn.addEventListener("click", () => {
     console.log(message.value, username.value);
     socket.emit("message", {
-        message: message.value,
+        message: cifrar(message.value),
         username: username.value,
     });
 });
@@ -17,5 +17,15 @@ btn.addEventListener("click", () => {
 socket.on("message", (data) => {
     output.innerHTML += `<p>
         <strong>${data.username}</strong>: ${data.message}
-    </p>`;
+        <button id="descifrado">Descifrar</button>
+    </p>
+    `;
 });
+
+function cifrar(x) {
+    return x * 2;
+}
+
+function descifrar(x) {
+    return x / 2;
+}
