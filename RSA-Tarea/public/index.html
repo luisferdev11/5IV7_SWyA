@@ -13,7 +13,12 @@
                 <div id="output"></div>
             </div>
             <input type="text" id="username" placeholder="usuario" />
-            <input type="number" id="message" placeholder="mensaje" />
+            <input
+                maxlength="3"
+                type="number"
+                id="message"
+                placeholder="mensaje"
+            />
             <button id="send">Enviar</button>
         </div>
         <script src="/socket.io/socket.io.js" charset="utf-8"></script>
