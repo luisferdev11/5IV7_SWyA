@@ -14,13 +14,16 @@
             </div>
             <input type="text" id="username" placeholder="usuario" />
             <input
+                type="text"
                 maxlength="3"
-                type="number"
+                minlength="1"
                 id="message"
                 placeholder="mensaje"
+                onkeypress="return validaNumericos(event)"
             />
             <button id="send">Enviar</button>
         </div>
+        <script src="./js/validaciones.js"></script>
         <script src="/socket.io/socket.io.js" charset="utf-8"></script>
         <script src="./js/chat.js"></script>
     </body>
