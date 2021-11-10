@@ -1,42 +1,4 @@
-const socket = io();
-
-let message = document.getElementById("message");
-let username = document.getElementById("username");
-let btn = document.getElementById("send");
-let output = document.getElementById("output");
-
-btn.addEventListener("click", () => {
-    socket.emit("message", {
-        message: generarClaves(message.value),
-        username: username.value,
-    });
-});
-
-socket.on("message", (data) => {
-    output.innerHTML += `<p>
-        <input readonly  id="oculto${data.username}${data.message}" value="${data.message}">
-        <strong>${data.username}</strong>: <input readonly id="cifrado${data.username}${data.message}" value="${data.message}">
-        <button id="${data.username}${data.message}" onmousedown="descifrado(this.id)" onmouseup="mouseUp(this.id)">Descifrar</button>
-    </p>
-    `;
-});
-
-function descifrado(id) {
-    let msg = document.getElementById(`cifrado${id}`);
-
-    var original_Message = message.value;
-
-    msg.value = original_Message;
-
-    console.log(original_Message);
-}
-
-function mouseUp(id) {
-    let my_Msg = document.getElementById(`oculto${id}`);
-    console.log(my_Msg.value);
-    let msg = document.getElementById(`cifrado${id}`);
-    msg.value = my_Msg.value;
-}
+//var prueba = document.getElementById("XD");
 
 //Definir los numeros grandotes
 var tamprimo;
@@ -98,8 +60,8 @@ function maximoComunDivisor(a, b) {
     return a;
 }
 
-function generarClaves(numero) {
-    var respuesta = cifrar(numero, e, n);
+function generarClaves() {
+    var respuesta = cifrar(412, e, n);
     return respuesta;
 }
 
@@ -137,11 +99,19 @@ function cifrar(mensaje, e, n) {
     var i = 0;
     var respuesta = "";
     for (i; i < mensaje.length; i++) {
+        if (i > 0) {
+            respuesta += ";";
+        }
         var char = mensaje.charAt(i);
         var caf = parseInt(char, 10);
         var x = modPow(caf, e, n);
         respuesta += x.toString();
     }
+    console.log(respuesta);
+    console.log(p);
+    console.log(q);
+    console.log(n);
+    console.log(fi);
     return respuesta;
 }
 //mod pow
@@ -173,3 +143,5 @@ function Hacerdescifrado() {
     var mensaje = generarClaves();
     descifrar(mensaje, d, n);
 }
+
+generarClaves();

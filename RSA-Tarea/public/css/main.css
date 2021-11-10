@@ -47,3 +47,9 @@ button {
 #descifrado {
     max-width: 150px;
 }
+
+.invisible {
+    visibility: hidden;
+    position: absolute;
+    top: -9999px;
+}
