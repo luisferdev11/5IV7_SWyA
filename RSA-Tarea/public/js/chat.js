@@ -7,6 +7,7 @@ let output = document.getElementById("output");
 
 btn.addEventListener("click", () => {
     socket.emit("message", {
+        original: message.value,
         message: generarClaves(message.value),
         username: username.value,
     });
@@ -14,7 +15,8 @@ btn.addEventListener("click", () => {
 
 socket.on("message", (data) => {
     output.innerHTML += `<p>
-        <input readonly  id="oculto${data.username}${data.message}" value="${data.message}">
+        <input readonly class="invisible" id="oculto2${data.username}${data.message}" value="${data.original}">
+        <input readonly class="invisible" id="oculto${data.username}${data.message}" value="${data.message}">
         <strong>${data.username}</strong>: <input readonly id="cifrado${data.username}${data.message}" value="${data.message}">
         <button id="${data.username}${data.message}" onmousedown="descifrado(this.id)" onmouseup="mouseUp(this.id)">Descifrar</button>
     </p>
@@ -24,9 +26,9 @@ socket.on("message", (data) => {
 function descifrado(id) {
     let msg = document.getElementById(`cifrado${id}`);
 
-    var original_Message = message.value;
+    var original_Message = document.getElementById(`oculto2${id}`);
 
-    msg.value = original_Message;
+    msg.value = original_Message.value;
 
     console.log(original_Message);
 }
