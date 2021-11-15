@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Firma digital</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1><b>Firma digital RDLF-CTAA</b></h1>
+
+            <h1>Firma y comprueba documentos</h1>
+            <p>
+                Para firmar documentos solo sube uno en donde dice "Seleccionar
+                archivo"
+            </p>
+            <p>
+                Para comprobar la veracidad llena todos los campos del
+                formulario
+            </p>
+            <p>
+                <b
+                    >Nota: Para verificar necesitas subir el documento original,
+                    es decir el que firmaste</b
+                >
+            </p>
+            <div id="overview">
+                <form
+                    id="formulario"
+                    method="POST"
+                    enctype="multipart/form-data"
+                >
+                    <h2>!Selecciona un nuevo archivo para firmar/verificar!</h2>
+                    <input
+                        type="file"
+                        id="subir_archivo"
+                        name="subir_archivo"
+                        class="box-upload"
+                    /><br />
+                    <br />
+
+                    <b>Firma digital: </b
+                    ><input
+                        type="text"
+                        id="Password2"
+                        name="Password2"
+                        placeholder="Ingrese su firma digital"
+                        minlength="16"
+                    />
+                    <div id="resultado"></div>
+                    <br />
+
+                    <b>Clave pública: </b
+                    ><input
+                        type="text"
+                        id="Password"
+                        name="Password"
+                        placeholder="Ingrese su clave pública"
+                        minlength="16"
+                    /><br />
+                    <br />
+                    <input
+                        type="submit"
+                        onclick="Cifrado(event)"
+                        value="Firmar"
+                    />
+                    <input
+                        type="submit"
+                        onclick="Decifrado(event)"
+                        value="Verificar"
+                    />
+                </form>
+            </div>
+            <footer>
+                <p>Rodriguez Dominguez Luis Fernando</p>
+                <p>Chávez Torreblanca Ángel Alexis</p>
+                <a
+                    href="https://github.com/Maurisantiagol/Firmadigital_maurinin"
+                    >Repositorio de GitHub</a
+                >
+            </footer>
+        </div>
+        <script src="app.js"></script>
+        <script type="text/javascript" src="resources/js/scripts.js"></script>
+    </body>
+</html>
