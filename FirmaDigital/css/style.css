@@ -1,9 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap");
-
 body {
     margin-bottom: 3rem;
     display: flex;
-    background-color: #5bc0be;
+    background-color: #ca7171;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
     font-size: 17px;
@@ -63,7 +61,7 @@ input[type="text"] {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
     font-weight: bold;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
 }
 
 .container {

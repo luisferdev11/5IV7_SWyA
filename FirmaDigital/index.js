@@ -48,10 +48,6 @@ app.post("/cifrar", (req, res) => {
         },
     });
 
-    //let privateKey = privateKey.toString('base64');
-    console.log("llave publica: " + publicKey.toString("base64"));
-    console.log("llave privada: " + privateKey.toString("base64"));
-
     Contenido = req.files.subir_archivo.name;
     archivo = __dirname + "/uploads/" + Contenido;
     mensaje = fs.readFileSync(archivo, "utf8");
@@ -67,7 +63,6 @@ app.post("/cifrar", (req, res) => {
     signer.update(mensaje);
     signer.end();
     const signature = signer.sign(LlavePrivada, "base64");
-    console.log("La firma es: " + signature);
 
     fs.writeFileSync(
         __dirname + "/uploads/" + Contenido,
